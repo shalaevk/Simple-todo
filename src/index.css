@@ -1,3 +1,7 @@
+* {
+  font-family: sans-serif;
+}
+
 #new-todo-form {
   display: flex;
   flex-direction: column;
@@ -11,9 +15,15 @@
 #list {
   padding: 0;
 }
+.task-list {
+  padding-left: 0;
+  max-width: 15.5vw;
+}
 
 .list-item {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .list-item-label:hover,
