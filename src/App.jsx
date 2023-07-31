@@ -4,8 +4,8 @@ import { Task } from "./Task";
 
 function App() {
   const [tasks, setTasks] = useState([
-    { text: "1", id: crypto.randomUUID(), completed: false },
-    { text: "2", id: crypto.randomUUID(), completed: false },
+    { text: "Task example", id: crypto.randomUUID(), completed: false },
+    { text: "Another task example", id: crypto.randomUUID(), completed: false },
   ]);
 
   const [inputValue, setinputValue] = useState("");
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <>
-      <ul>
+      <ul className="task-list">
         {tasks.map((task) => {
           return (
             <Task
