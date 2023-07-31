@@ -22,7 +22,7 @@ function App() {
     const newTask = {
       text: inputValue,
       id: crypto.randomUUID(),
-      checked: false,
+      checked: true,
     };
     setTasks((current) => [newTask, ...current]);
     setinputValue("");
