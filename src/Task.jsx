@@ -1,3 +1,5 @@
+import { DeleteButton } from "./DeleteButton";
+
 export function Task({ text, deleter, id, completed, setCheckedHandler }) {
   //   const [checked, setChecked] = useState(false);
   //   function setCheckedHandler() {
@@ -14,9 +16,7 @@ export function Task({ text, deleter, id, completed, setCheckedHandler }) {
         />
         <span data-list-item-text>{text}</span>
       </label>
-      <button onClick={() => deleter(id)} data-button-delete>
-        Delete
-      </button>
+      <DeleteButton deleter={deleter} id={id} />
     </li>
   );
 }
