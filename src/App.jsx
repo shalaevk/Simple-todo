@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useValue } from "./hooks";
 import "./App.css";
 import { Task } from "./Task";
 
@@ -7,25 +8,19 @@ function App() {
     { text: "Task example", id: crypto.randomUUID(), completed: false },
     { text: "Another task example", id: crypto.randomUUID(), completed: false },
   ]);
-
-  const [inputValue, setinputValue] = useState("");
-
-  function inputHandler(e) {
-    setinputValue(e.target.value);
-    console.log(inputValue);
-  }
+  const inputValue = useValue("");
 
   function addTask() {
-    if (inputValue === "") {
+    if (inputValue.inpvalue === "") {
       return;
     }
     const newTask = {
-      text: inputValue,
+      text: inputValue.inpvalue,
       id: crypto.randomUUID(),
-      checked: true,
+      completed: false,
     };
     setTasks((current) => [newTask, ...current]);
-    setinputValue("");
+    inputValue.resetValue("");
   }
 
   function deleter(id) {
@@ -33,7 +28,6 @@ function App() {
   }
 
   function setCheckedHandler(id, completed) {
-    console.log(completed);
     setTasks(
       tasks.map((task) => {
         if (task.id === id) {
@@ -62,8 +56,8 @@ function App() {
         <input
           type="text"
           id="todo-input"
-          value={inputValue}
-          onChange={(e) => inputHandler(e)}
+          value={inputValue.inpvalue}
+          onChange={inputValue.onChange}
         />
         <button onClick={addTask}>Add Todo!</button>
       </div>
